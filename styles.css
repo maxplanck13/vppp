@@ -1,0 +1,570 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;700&display=swap');
+
+:root {
+    --bg-eggshell: #F8F5EE;
+    --bg-card: #FFFFFF;
+    --text-wood: #3A3026;
+    --text-muted: #6B5B49;
+    --accent-terracotta: #A84532;
+    --accent-leaf: #486E4F;
+    --accent-straw: #D9AE60;
+    
+    --border-thick: 3px solid var(--text-wood);
+    --border-thin: 1px solid var(--text-wood);
+    
+    --shadow-solid: 6px 6px 0px var(--text-wood);
+    --shadow-solid-hover: 10px 10px 0px var(--text-wood);
+    
+    --radius-soft: 8px;
+    --radius-round: 50%;
+    
+    --font-heading: 'Lora', serif;
+    --font-body: 'Nunito', sans-serif;
+    
+    --transition: all 0.2s ease-out;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-wood);
+    background-color: var(--bg-eggshell);
+    line-height: 1.7;
+    overflow-x: hidden;
+    background-image: radial-gradient(var(--text-wood) 0.5px, transparent 0.5px);
+    background-size: 20px 20px;
+    background-position: 0 0;
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text y="24" font-size="24">🥚</text></svg>') 16 16, auto;
+}
+
+h1, h2, h3, h4, .logo {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: var(--transition);
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text y="24" font-size="24">🐣</text></svg>') 16 16, pointer;
+}
+
+button, .btn-primary, .btn-outline, .product-card, .nav-links a {
+    cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32"><text y="24" font-size="24">🐣</text></svg>') 16 16, pointer;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.section-padding {
+    padding: 80px 0;
+}
+
+/* Artisan Buttons */
+.btn-primary {
+    display: inline-block;
+    background: var(--accent-terracotta);
+    color: #fff !important;
+    padding: 12px 28px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: var(--border-thick);
+    border-radius: var(--radius-soft);
+    box-shadow: var(--shadow-solid);
+}
+
+.btn-primary:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: var(--shadow-solid-hover);
+}
+
+.btn-outline {
+    display: inline-block;
+    background: var(--accent-straw);
+    color: var(--text-wood);
+    padding: 12px 28px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.1rem;
+    border: var(--border-thick);
+    border-radius: var(--radius-soft);
+    box-shadow: var(--shadow-solid);
+}
+
+.btn-outline:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: var(--shadow-solid-hover);
+}
+
+/* Rustic Navbar */
+.navbar {
+    background-color: var(--bg-eggshell);
+    border-bottom: var(--border-thick);
+    padding: 15px 0;
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2rem;
+    color: var(--accent-leaf);
+    border: var(--border-thick);
+    padding: 5px 15px;
+    background: var(--bg-card);
+    transform: rotate(-1deg);
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links a {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: 1.1rem;
+}
+
+.nav-links a:hover {
+    color: var(--accent-terracotta);
+    text-decoration: underline;
+}
+
+/* Farmhouse Hero Section */
+.hero {
+    padding: 60px 0;
+    border-bottom: var(--border-thick);
+    background: var(--bg-card);
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+}
+
+.hero-text {
+    flex: 1.2;
+}
+
+.hero-text-animate {
+    opacity: 0;
+    animation: textFadeIn 1.5s ease-out forwards 1.2s;
+}
+
+@keyframes textFadeIn {
+    0% { opacity: 0; transform: translateX(-40px); }
+    100% { opacity: 1; transform: translateX(0); }
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 25px;
+    font-style: italic;
+    color: var(--text-wood);
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 35px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+}
+
+.hero-entrance {
+    flex: 1;
+    animation: heroEntranceDrop 2.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes heroEntranceDrop {
+    0% { transform: scale(1.75) translate(-10%, 15%); opacity: 0; }
+    100% { transform: scale(1) translate(0, 0); opacity: 1; }
+}
+
+.hero-visual {
+    position: relative;
+    padding: 20px;
+    background: var(--accent-straw);
+    border: var(--border-thick);
+    box-shadow: var(--shadow-solid);
+    transform: rotate(2deg);
+    animation: imageDrift 8s ease-in-out infinite;
+}
+
+@keyframes imageDrift {
+    0%, 100% { transform: rotate(2deg) translateY(0px) scale(1); }
+    50% { transform: rotate(-2deg) translateY(-15px) scale(1.02); }
+}
+
+.hero-img {
+    width: 100%;
+    height: auto;
+    border: var(--border-thin);
+    display: block;
+}
+
+/* Badges */
+.badge {
+    position: absolute;
+    background: var(--bg-card);
+    border: var(--border-thick);
+    padding: 8px 15px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1rem;
+    box-shadow: 4px 4px 0px var(--text-wood);
+    z-index: 10;
+}
+
+@keyframes hoverFloatOne {
+    0%, 100% { transform: rotate(5deg) translate(0px, 0px); box-shadow: 4px 4px 0px var(--text-wood); }
+    50% { transform: rotate(12deg) translate(15px, -20px); box-shadow: 8px 12px 0px var(--text-wood); }
+}
+
+@keyframes hoverFloatTwo {
+    0%, 100% { transform: rotate(-3deg) translate(0px, 0px); box-shadow: 4px 4px 0px var(--text-wood); }
+    50% { transform: rotate(-10deg) translate(-20px, 15px); box-shadow: -6px 8px 0px var(--text-wood); }
+}
+
+.badge-1 {
+    top: -15px;
+    right: -15px;
+    transform: rotate(5deg);
+    color: var(--accent-terracotta);
+    animation: hoverFloatOne 6s ease-in-out infinite;
+}
+
+.badge-2 {
+    bottom: -15px;
+    left: -15px;
+    transform: rotate(-3deg);
+    color: var(--accent-leaf);
+    animation: hoverFloatTwo 5s ease-in-out infinite 1s;
+}
+
+/* Ticker Tape Surprise */
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden;
+    background: var(--text-wood);
+    color: var(--bg-eggshell);
+    padding: 8px 0;
+    border-bottom: var(--border-thick);
+    border-top: var(--border-thick);
+    display: flex;
+    white-space: nowrap;
+}
+
+.ticker-content {
+    display: flex;
+    width: max-content;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 0.95rem;
+    animation: tickerScroll 15s linear infinite;
+}
+
+.ticker-content span {
+    color: var(--accent-straw);
+    margin-right: 50px;
+}
+
+@keyframes tickerScroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+}
+
+/* Section Headers */
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+    position: relative;
+}
+
+.section-title h2 {
+    font-size: 3rem;
+    font-style: italic;
+    display: inline-block;
+    padding: 10px 30px;
+    background: var(--accent-straw);
+    border: var(--border-thick);
+    box-shadow: var(--shadow-solid);
+    transform: rotate(-1deg);
+}
+
+.section-title p {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+/* Organic Grid */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.product-card {
+    background: var(--bg-card);
+    border: var(--border-thick);
+    box-shadow: var(--shadow-solid);
+    padding: 20px;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card:hover {
+    transform: translate(-2px, -2px) rotate(1deg);
+    box-shadow: var(--shadow-solid-hover);
+}
+
+.product-img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border: var(--border-thin);
+    margin-bottom: 20px;
+    filter: sepia(20%);
+}
+
+.product-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    border-bottom: 2px dashed var(--text-muted);
+    padding-bottom: 10px;
+}
+
+.product-header h3 {
+    font-size: 1.4rem;
+    color: var(--accent-leaf);
+}
+
+.product-price {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--accent-terracotta);
+    font-size: 1.2rem;
+}
+
+.product-specs {
+    margin-bottom: 15px;
+}
+
+.spec-tag {
+    display: inline-block;
+    border: 1px solid var(--text-muted);
+    color: var(--text-wood);
+    font-size: 0.9rem;
+    padding: 2px 8px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+.product-desc {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: auto;
+}
+
+/* Rustic About & Vision */
+.vision-grid {
+    display: flex;
+    gap: 40px;
+}
+
+.vision-card {
+    flex: 1;
+    background: var(--bg-card);
+    border: var(--border-thick);
+    box-shadow: var(--shadow-solid);
+    padding: 40px;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    cursor: pointer;
+}
+
+.vision-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 12px 12px 0px var(--text-wood);
+}
+
+.vision-card:nth-child(even) {
+    background: var(--accent-leaf);
+    color: var(--bg-eggshell);
+}
+
+.vision-card:nth-child(even) h3 {
+    color: var(--accent-straw);
+}
+
+.vision-card:nth-child(even) p {
+    color: var(--bg-eggshell);
+}
+
+.vision-card h3 {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    font-style: italic;
+    color: var(--accent-terracotta);
+}
+
+.vision-card p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+/* Reviews Styling */
+.reviews-section {
+    background: var(--accent-leaf);
+    border-top: var(--border-thick);
+    border-bottom: var(--border-thick);
+}
+
+.reviews-section .section-title h2 {
+    background: var(--bg-eggshell);
+}
+
+.reviews-section .section-title p {
+    color: var(--accent-straw);
+}
+
+.testimonial-group {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.review-card {
+    background: var(--bg-card);
+    border: var(--border-thick);
+    padding: 30px;
+    box-shadow: var(--shadow-solid);
+    transform: rotate(-2deg);
+    width: 350px;
+}
+
+.review-card:nth-child(1) { transform: rotate(1deg); }
+.review-card:nth-child(2) { transform: rotate(-1deg); }
+
+.stars {
+    color: var(--accent-terracotta);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.review-card h4 {
+    font-size: 1.4rem;
+}
+
+/* Call Us Global CTA */
+.call-cta {
+    text-align: center;
+    margin-top: 40px;
+}
+
+/* Live Impact Board */
+.impact-board {
+    background: var(--bg-card);
+    border: var(--border-thick);
+    box-shadow: var(--shadow-solid);
+    padding: 50px;
+    margin-bottom: 20px;
+}
+
+.impact-header {
+    text-align: center;
+    margin-bottom: 40px;
+    border-bottom: 2px dashed var(--text-muted);
+    padding-bottom: 20px;
+}
+
+.impact-header h2 {
+    font-size: 2.5rem;
+    font-style: italic;
+    color: var(--accent-leaf);
+    margin-bottom: 10px;
+}
+
+.impact-stats {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.stat-card {
+    text-align: center;
+    flex: 1;
+    min-width: 200px;
+}
+
+.stat-number {
+    font-size: 3.5rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--text-wood);
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Footer */
+.footer {
+    background: var(--text-wood);
+    color: var(--bg-eggshell);
+    padding: 60px 0;
+    text-align: center;
+}
+
+.footer .logo {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: var(--bg-eggshell);
+    background: var(--text-wood);
+    border-color: var(--bg-eggshell);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .hero-content { flex-direction: column; text-align: center; }
+    .hero-text h1 { font-size: 3rem; }
+    .hero-buttons { justify-content: center; }
+    .vision-grid { flex-direction: column; }
+    .impact-stats { flex-direction: column; gap: 40px; }
+}
