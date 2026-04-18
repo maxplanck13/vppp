@@ -1,270 +1,323 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vpack Pulp Products | Farm Fresh Packaging</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
+/* =====================================================
+   VPACK PULP PRODUCTS — Premium JavaScript Engine
+   ===================================================== */
 
-    <!-- Rustic Navbar -->
-    <header class="navbar">
-        <div class="container nav-content">
-            <a href="#" class="logo">VPACK PULP.</a>
-            <nav class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#products">Products</a>
-                <a href="#about">Our Roots</a>
-                <a href="#reviews">Testimonials</a>
-                <a href="tel:+919443302468" class="btn-primary">Call Us</a>
-            </nav>
-        </div>
-    </header>
+document.addEventListener('DOMContentLoaded', () => {
 
-    <!-- Farmhouse Hero Section -->
-    <section id="home" class="hero">
-        <div class="container hero-content">
-            <div class="hero-text hero-text-animate">
-                <h1>Sustainable Packaging for a Greener Future.</h1>
-                <p>Providing you the best range of Farm-Friendly Paper Pulp Egg Trays and Sustainable Storage with reliable delivery straight from India.</p>
-                <div class="hero-buttons">
-                    <a href="tel:+919443302468" class="btn-primary">Call Us Directly</a>
-                    <a href="#products" class="btn-outline">View Portfolio</a>
-                </div>
-            </div>
-            
-            <div class="hero-visual-wrapper hero-entrance">
-                <div class="hero-visual">
-                    <img src="./images/12eggs.webp" alt="Vpack Pulp Boxes" class="hero-img">
-                    <div class="badge badge-1">♻️ 100% Recyclable</div>
-                    <div class="badge badge-2">🌱 Earth Friendly</div>
-                </div>
-            </div>
-        </div>
-    </section>
+    /* ─────────────────────────────────────────────
+       1. FLOATING NATURE PARTICLES
+       ───────────────────────────────────────────── */
+    const canvas = document.getElementById('particles-canvas');
+    const emojis = ['🍃', '🌿', '🍂', '🌱', '🌾', '🍀', '🐣'];
+    const particleCount = 14;
 
-    <!-- LIVE IMPACT BOARD -->
-    <section class="live-impact" style="padding-top: 60px; padding-bottom: 30px;">
-        <div class="container">
-            <div class="impact-board fade-in">
-                <div class="impact-header">
-                    <h2>Live Global Impact</h2>
-                    <p>Real-time production and sustainability tracking based on our 10,000 unit/day manufacturing capacity.</p>
-                </div>
-                <div class="impact-stats">
-                    <div class="stat-card">
-                        <div class="stat-number" id="stat-made">0</div>
-                        <div class="stat-label">Units Manufactured</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="stat-delivered" style="color: var(--accent-terracotta);">0</div>
-                        <div class="stat-label">Successfully Delivered</div>
-                    </div>
-                    <div class="stat-card">
-                        <div class="stat-number" id="stat-plastic" style="color: var(--accent-leaf);">0</div>
-                        <div class="stat-label">KGs of Plastic Prevented</div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    for (let i = 0; i < particleCount; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        p.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        const leftPos = Math.random() * 100;
+        const dur = 10 + Math.random() * 14;
+        const delay = Math.random() * 15;
+        p.style.setProperty('--dur', `${dur}s`);
+        p.style.setProperty('--pd-delay', `${delay}s`);
+        p.style.left = `${leftPos}%`;
+        p.style.fontSize = `${0.8 + Math.random() * 1.4}rem`;
+        canvas.appendChild(p);
+    }
 
-    <!-- Product Catalog (Handcrafted Cards) -->
-    <section id="products" class="section-padding" style="background-color: var(--bg-card); border-top: var(--border-thick); border-bottom: var(--border-thick);">
-        <div class="container">
-            <div class="section-title">
-                <h2>Products</h2>
-                <p>Explore our complete range of biodegradable packaging solutions.</p>
-            </div>
-            
-            <div class="product-grid">
-                <!-- Product 1 -->
-                <div class="product-card">
-                    <img src="./images/6 eggs with lock.webp" class="product-img" alt="6 Cavity Tray">
-                    <div class="product-header">
-                        <h3>Paper Pulp 6 Cavity</h3>
-                        <span class="product-price">₹ 2 / Piece</span>
-                    </div>
-                    <div class="product-specs">
-                        <span class="spec-tag">6 Eggs</span>
-                        <span class="spec-tag">28x28x5 cm</span>
-                        <span class="spec-tag">Paper</span>
-                    </div>
-                    <p class="product-desc">Made from recycled paper and are biodegradable. Durable, providing adequate protection to eggs during transportation.</p>
-                </div>
 
-                <!-- Product 2 -->
-                <div class="product-card">
-                    <img src="./images/12eggs.webp" class="product-img" alt="Moulding Boxes">
-                    <div class="product-header">
-                        <h3>Moulding Paper Boxes</h3>
-                        <span class="product-price">₹ 2 / Piece</span>
-                    </div>
-                    <div class="product-specs">
-                        <span class="spec-tag">12 Eggs</span>
-                        <span class="spec-tag">Rectangle</span>
-                        <span class="spec-tag">Disposable</span>
-                    </div>
-                    <p class="product-desc">Premium pulp moulding boxes made in India. Perfect for farm-fresh retail and wholesale.</p>
-                </div>
+    /* ─────────────────────────────────────────────
+       2. STICKY NAVBAR — Scrolled State + Active Link
+       ───────────────────────────────────────────── */
+    const navbar = document.querySelector('.navbar');
+    const navLinks = document.querySelectorAll('.nav-link[data-section]');
+    const sections = document.querySelectorAll('section[id]');
 
-                <!-- Product 3 -->
-                <div class="product-card">
-                    <img src="./images/12 eggs 3.webp" class="product-img" alt="10 Egg Tray">
-                    <div class="product-header">
-                        <h3>Recyclable 10 Egg Tray</h3>
-                        <span class="product-price">₹ 4.5 / Piece</span>
-                    </div>
-                    <div class="product-specs">
-                        <span class="spec-tag">12 Eggs Capacity</span>
-                        <span class="spec-tag">3mm Thick</span>
-                    </div>
-                    <p class="product-desc">Sturdy, durable and reusable. Lightweight shock absorption effectively avoids egg collision and rupture.</p>
-                </div>
+    const updateNavbar = () => {
+        if (window.scrollY > 60) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
 
-                <!-- Product 4 -->
-                <div class="product-card">
-                    <img src="./images/6 egg without lock.webp" class="product-img" alt="Paper Egg Trays">
-                    <div class="product-header">
-                        <h3>Paper Pulp Egg Trays</h3>
-                        <span class="product-price">₹ 2.5 / Piece</span>
-                    </div>
-                    <div class="product-specs">
-                        <span class="spec-tag">6 Eggs</span>
-                        <span class="spec-tag">Round</span>
-                        <span class="spec-tag">Without Lid</span>
-                    </div>
-                    <p class="product-desc">Round shape, without lid. Excellent for local transit and short-term eco-friendly packaging.</p>
-                </div>
+        // Active section highlighting
+        let currentSection = '';
+        sections.forEach(sec => {
+            const top = sec.offsetTop - 120;
+            if (window.scrollY >= top) {
+                currentSection = sec.getAttribute('id');
+            }
+        });
 
-                <!-- Product 5 -->
-                <div class="product-card">
-                    <img src="./images/12eggs 2.webp" class="product-img" alt="Storage Box">
-                    <div class="product-header">
-                        <h3>Storage Box With Lid</h3>
-                        <span class="product-price">₹ 5 / Piece</span>
-                    </div>
-                    <div class="product-specs">
-                        <span class="spec-tag">12 Eggs</span>
-                        <span class="spec-tag">Square</span>
-                        <span class="spec-tag">Lidded</span>
-                    </div>
-                    <p class="product-desc">While protecting eggs during transport, these can be upcycled and reused in gardening, organizing, and crafting.</p>
-                </div>
+        navLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.dataset.section === currentSection) {
+                link.classList.add('active');
+            }
+        });
+    };
 
-                <!-- Product 6 -->
-                <div class="product-card">
-                    <img src="./images/12eggs.webp" class="product-img" alt="Sustainable Trays">
-                    <div class="product-header">
-                        <h3>Sustainable Egg Trays</h3>
-                        <span class="product-price">₹ 2 / Piece</span>
-                    </div>
-                    <div class="product-specs">
-                        <span class="spec-tag">24 Eggs</span>
-                        <span class="spec-tag">Recycled Pulp</span>
-                    </div>
-                    <p class="product-desc">Crafted from recycled paper pulp from post-consumer sources. Chosen for biodegradability and renewability.</p>
-                </div>
+    window.addEventListener('scroll', updateNavbar, { passive: true });
+    updateNavbar();
 
-                <!-- Product 7 -->
-                <div class="product-card">
-                    <img src="./images/12 eggs 3.webp" class="product-img" alt="Disposable 12 Tray">
-                    <div class="product-header">
-                        <h3>Disposable Paper Tray</h3>
-                        <span class="product-price">₹ 5 / Piece</span>
-                    </div>
-                    <div class="product-specs">
-                        <span class="spec-tag">18 Eggs</span>
-                        <span class="spec-tag">3mm Thick</span>
-                    </div>
-                    <p class="product-desc">Protects eggs from external shock, dampness, and illumination, massively reducing product loss.</p>
-                </div>
-            </div>
-            
-            <div class="call-cta">
-                <p style="font-size: 1.2rem; margin-bottom: 15px; font-style: italic;">Need an immediate quote for a bulk harvest?</p>
-                <a href="tel:+919443302468" class="btn-primary" style="font-size: 1.3rem; padding: 15px 40px;">Call Us Now: +91 9443302468</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- The Farmhouse Surprise Ticker MOVED BELOW PRODUCTS -->
-    <div class="ticker-wrap">
-        <div class="ticker-content">
-            <span>★ 100% BIODEGRADABLE</span>
-            <span>★ ZERO PLASTIC</span>
-            <span>★ FARM FRESH</span>
-            <span>★ SUSTAINABLY CRAFTED</span>
-            <span>★ MADE IN INDIA</span>
-            <span>★ 100% BIODEGRADABLE</span>
-            <span>★ ZERO PLASTIC</span>
-            <span>★ FARM FRESH</span>
-            <span>★ SUSTAINABLY CRAFTED</span>
-            <span>★ MADE IN INDIA</span>
-        </div>
-    </div>
+    /* ─────────────────────────────────────────────
+       3. SMOOTH ANCHOR SCROLL (offset for fixed header)
+       ───────────────────────────────────────────── */
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const href = this.getAttribute('href');
+            if (!href || href === '#') return;
+            const target = document.querySelector(href);
+            if (!target) return;
+            e.preventDefault();
+            const offset = 80;
+            const top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
 
-    <!-- Organic Vision & Roots -->
-    <section id="about" class="section-padding">
-        <div class="container">
-            <div class="section-title">
-                <h2>Our Roots & Vision</h2>
-                <p>Learn about our purpose and our responsibility to the planet.</p>
-            </div>
-            
-            <div class="vision-grid">
-                <div class="vision-card">
-                    <h3>About Us</h3>
-                    <p>Located in Koothappar - 620014, Tamil Nadu, India, VPACK PULP PRODUCTS specializes in providing high-quality, sustainable, and eco-friendly paper egg boxes designed to protect and preserve eggs securely during transportation and storage.</p>
-                    <p>Using meticulously recycled materials and biodegradable pulp, our egg cartons offer an environmentally responsible alternative to plastic packaging. Whether you operate a small family farm, a local grocery chain, or a large packaging supplier, our custom-designed paper egg boxes are heavily tailored to meet your physical needs.</p>
-                </div>
-                <div class="vision-card">
-                    <h3>Our Vision</h3>
-                    <p>Our commitment to innovation and sustainability has made us a highly trusted name in the agricultural packaging industry. We firmly believe in a zero-waste future where industrial shipping and local farming logistics rely completely on nature-based solutions.</p>
-                    <p>We supply a wide range of sizes and custom configurations to cater directly to businesses of all scales. By maintaining a focus on premium quality and minimal environmental impact, we aim to lead the way back to sustainable, farm-friendly packaging solutions.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+            // Close hamburger menu if open
+            navLinksEl.classList.remove('open');
+            hamburger.classList.remove('active');
+        });
+    });
 
-    <!-- Reviews with Farmhouse Style -->
-    <section id="reviews" class="reviews-section section-padding">
-        <div class="container">
-            <div class="section-title">
-                <h2>Word on the Farm</h2>
-                <p>Real feedback from our agricultural partners and suppliers.</p>
-            </div>
-            
-            <div class="testimonial-group">
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <h4>Mohammed Irfan</h4>
-                    <p style="font-size: 0.95rem; margin-top: 10px; color: var(--text-muted); font-style: italic;">Hospet, Karnataka | Dec 19</p>
-                    <p style="margin-top: 15px; font-weight: 700;">Purchased: Paper Pulp Egg Trays</p>
-                </div>
-                <div class="review-card">
-                    <div class="stars">★★★★★</div>
-                    <h4>Vimalraj</h4>
-                    <p style="font-size: 0.95rem; margin-top: 10px; color: var(--text-muted); font-style: italic;">Koppal, Karnataka | Mar 14</p>
-                    <p style="margin-top: 15px; font-weight: 700;">Purchased: Pulp Egg Boxes</p>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <!-- Rustic Footer -->
-    <footer class="footer">
-        <div class="container">
-            <h2 class="logo">VPACK PULP.</h2>
-            <p>&copy; 2026 Vpack Pulp Products. All Rights Reserved.</p>
-            <p>Proprietor: Subramanian | Koothappar - Tamil Nadu, India</p>
-            <p style="margin-top: 20px; font-size: 0.9rem; opacity: 0.8;">Developed and Managed by IndiaMART InterMESH Limited</p>
-        </div>
-    </footer>
+    /* ─────────────────────────────────────────────
+       4. HAMBURGER MENU (Mobile)
+       ───────────────────────────────────────────── */
+    const hamburger = document.getElementById('hamburger');
+    const navLinksEl = document.getElementById('navLinks');
 
-</body>
-</html>
+    hamburger.addEventListener('click', () => {
+        navLinksEl.classList.toggle('open');
+        hamburger.classList.toggle('active');
+    });
+
+    // Close on outside click
+    document.addEventListener('click', (e) => {
+        if (!navbar.contains(e.target)) {
+            navLinksEl.classList.remove('open');
+            hamburger.classList.remove('active');
+        }
+    });
+
+
+    /* ─────────────────────────────────────────────
+       5. SCROLL REVEAL — IntersectionObserver
+       ───────────────────────────────────────────── */
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Stagger children that have reveal class
+                entry.target.classList.add('visible');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.08,
+        rootMargin: '0px 0px -60px 0px'
+    });
+
+    document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+
+    /* ─────────────────────────────────────────────
+       6. ANIMATED COUNTERS
+       ───────────────────────────────────────────── */
+    const animateCount = (el, target, duration = 1800, suffix = '') => {
+        let start = 0;
+        const step = target / (duration / 16);
+        const isDecimal = String(target).includes('.');
+
+        const update = () => {
+            start += step;
+            if (start < target) {
+                el.textContent = isDecimal ? Math.min(start, target).toFixed(1) + suffix : Math.floor(start) + suffix;
+                requestAnimationFrame(update);
+            } else {
+                el.textContent = isDecimal ? target.toFixed(1) + suffix : target + suffix;
+            }
+        };
+        requestAnimationFrame(update);
+    };
+
+    const counterObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const el = entry.target;
+                const rawCount = parseFloat(el.dataset.count);
+                animateCount(el, rawCount);
+                counterObserver.unobserve(el);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+
+    /* ─────────────────────────────────────────────
+       7. ANIMATED RATING BARS
+       ───────────────────────────────────────────── */
+    const barObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.querySelectorAll('.rbar-fill, .factor-bar').forEach(bar => {
+                    bar.classList.add('animated');
+                });
+                barObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.3 });
+
+    const ratingOverview = document.querySelector('.rating-overview');
+    if (ratingOverview) barObserver.observe(ratingOverview);
+
+
+    /* ─────────────────────────────────────────────
+       8. PRODUCT CARD FILTER
+       ───────────────────────────────────────────── */
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const productCards = document.querySelectorAll('.product-card[data-category]');
+
+    filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            filterBtns.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            const filter = btn.dataset.filter;
+
+            productCards.forEach(card => {
+                const cat = card.dataset.category;
+                if (filter === 'all' || cat === filter) {
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.9)';
+                    card.style.display = 'flex';
+                    setTimeout(() => {
+                        card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0) scale(1)';
+                    }, 50);
+                } else {
+                    card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.9)';
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 350);
+                }
+            });
+        });
+    });
+
+
+    /* ─────────────────────────────────────────────
+       9. BACK TO TOP BUTTON
+       ───────────────────────────────────────────── */
+    const backToTop = document.getElementById('backToTop');
+
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 500) {
+            backToTop.classList.add('visible');
+        } else {
+            backToTop.classList.remove('visible');
+        }
+    }, { passive: true });
+
+    backToTop.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+
+    /* ─────────────────────────────────────────────
+       10. HERO IMAGE PARALLAX (subtle)
+       ───────────────────────────────────────────── */
+    const heroImg = document.querySelector('.hero-main-img');
+    if (heroImg) {
+        window.addEventListener('scroll', () => {
+            const scrolled = window.scrollY;
+            if (scrolled < window.innerHeight) {
+                heroImg.style.transform = `scale(1.04) translateY(${scrolled * 0.06}px)`;
+            }
+        }, { passive: true });
+    }
+
+
+    /* ─────────────────────────────────────────────
+       11. EASTER EGG — Leaf Rain on Logo Click
+       ───────────────────────────────────────────── */
+    const logoEl = document.querySelector('.logo');
+    logoEl.addEventListener('click', () => {
+        const emojisRain = ['🍃', '🌿', '🥚', '🌱', '🐣', '♻️'];
+        for (let i = 0; i < 20; i++) {
+            const raindrop = document.createElement('div');
+            raindrop.textContent = emojisRain[Math.floor(Math.random() * emojisRain.length)];
+            raindrop.style.cssText = `
+                position: fixed;
+                top: -30px;
+                left: ${10 + Math.random() * 80}%;
+                font-size: ${1 + Math.random()}rem;
+                z-index: 9999;
+                pointer-events: none;
+                animation: rainFall ${0.8 + Math.random() * 1.5}s ease-in ${Math.random() * 0.5}s forwards;
+            `;
+            document.body.appendChild(raindrop);
+            setTimeout(() => raindrop.remove(), 2500);
+        }
+    });
+
+    // Add rain fall keyframes dynamically
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes rainFall {
+            0%   { transform: translateY(0px) rotate(0deg); opacity: 1; }
+            100% { transform: translateY(130vh) rotate(720deg); opacity: 0; }
+        }
+    `;
+    document.head.appendChild(style);
+
+
+    /* ─────────────────────────────────────────────
+       12. PRODUCT CARD MAGNETIC HOVER EFFECT
+       ───────────────────────────────────────────── */
+    document.querySelectorAll('.product-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = e.clientX - rect.left - rect.width / 2;
+            const y = e.clientY - rect.top - rect.height / 2;
+            const tiltX = (y / rect.height) * 4;
+            const tiltY = -(x / rect.width) * 4;
+            card.style.transform = `translateY(-10px) rotateX(${tiltX}deg) rotateY(${tiltY}deg)`;
+        });
+
+        card.addEventListener('mouseleave', () => {
+            card.style.transform = '';
+            card.style.transition = 'transform 0.5s ease, box-shadow 0.4s ease';
+            setTimeout(() => {
+                card.style.transition = '';
+            }, 500);
+        });
+    });
+
+
+    /* ─────────────────────────────────────────────
+       13. SECTION BACKGROUND COLOR TRANSITION ON SCROLL
+       ───────────────────────────────────────────── */
+    const bgObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                document.body.style.transition = 'background 0.8s ease';
+            }
+        });
+    }, { threshold: 0.4 });
+
+    document.querySelectorAll('section[id]').forEach(sec => bgObserver.observe(sec));
+
+
+    /* ─────────────────────────────────────────────
+       14. CONSOLE SIGNATURE (Surprise!)
+       ───────────────────────────────────────────── */
+    console.log('%c🌿 Vpack Pulp Products', 'color: #4A7055; font-size: 24px; font-weight: bold; font-family: serif;');
+    console.log('%cSustainable packaging for a greener tomorrow.', 'color: #C9963A; font-size: 14px;');
+    console.log('%c📍 Koothappar, Tamil Nadu | ♻️ Zero Plastic', 'color: #7A6352; font-size: 12px;');
+
+});
